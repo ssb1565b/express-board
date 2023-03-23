@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <a href="/">홈으로</a>
+  <h1>글 작성</h1>
+  <ul>
+    <% if(postCount > 0) { %>
+    <% for(let i = 0; i < postCount; i++) { %>
+    <li>
+      <p>글 제목 <%=POSTS[i].title %> </p>
+      <p>글 내용 <%=POSTS[i].content %> </p>
+    </li>
+    <% } %>
+    <% } else { %>
+    <li>작성된 글이 없습니다.</li>
+    <% } %>
+  </ul>
+  <form action="/posts/add" method="POST">
+    <div><label>제목</label><input type="text" name="title" /></div>
+    <div><label>내용</label><input type="text" name="content" /></div>
+    <button type="submit">작성완료</button>
+  </form>
+</body>
+
+</html>
